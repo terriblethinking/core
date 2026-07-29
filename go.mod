@@ -1,4 +1,4 @@
-module core
+module github.com/terriblethinking/core
 
 go 1.26.4
 
