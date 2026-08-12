@@ -32,7 +32,7 @@ func GetInfoForProvider(name schemas.ModelProvider) (ProviderConfig, error) {
 		return ProviderConfig{}, err
 	}
 
-	filename := fmt.Sprintf("%s/config/providers/%s.yaml", configDir, name)
+	filename := fmt.Sprintf("%s/harness/providers/%s.yaml", configDir, name)
 	if _, err := os.Stat(filename); errors.Is(err, os.ErrNotExist) {
 		return ProviderConfig{}, fmt.Errorf("config does not exist for %s", name)
 	}
@@ -51,7 +51,7 @@ func GetInfoForProvider(name schemas.ModelProvider) (ProviderConfig, error) {
 		return ProviderConfig{}, fmt.Errorf("error unmarshaling config for %s", name)
 	}
 
-	return ProviderConfig{}, nil
+	return provider, nil
 }
 
 func GetAllProviders() ([]ProviderConfig, error) {

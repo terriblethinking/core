@@ -6,6 +6,7 @@ import (
 	"errors"
 	"os"
 
+	"github.com/kirsle/configdir"
 	"github.com/maximhq/bifrost/core/schemas"
 	"gopkg.in/yaml.v3"
 )
@@ -16,13 +17,9 @@ type Config struct {
 }
 
 func GetBaseConfig() (Config, error) {
-	configDir, err := os.UserConfigDir()
+	configPath := configdir.LocalConfig("harness")
 
-	if err != nil {
-		return Config{}, err
-	}
-
-	filename := fmt.Sprintf("%s/config.yaml", configDir)
+	filename := fmt.Sprintf("%s/config.yaml", configPath)
 	if _, err := os.Stat(filename); errors.Is(err, os.ErrNotExist) {
 		return Config{}, errors.New("base config does not exist")
 	}
@@ -33,7 +30,7 @@ func GetBaseConfig() (Config, error) {
 		return Config{}, errors.New("could not read base config")
 	}
 
-	config := make(map[string]Config)
+	var config Config
 
 	err = yaml.Unmarshal(configFile, &config)
 
@@ -41,6 +38,6 @@ func GetBaseConfig() (Config, error) {
 		return Config{}, errors.New("could not unmarshal base config")
 	}
 
-	return Config{}, nil
+	return config, nil
 
 }
