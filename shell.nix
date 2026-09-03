@@ -10,5 +10,6 @@ pkgs.mkShell {
     go-tools
     gomodifytags
     impl
+    wazero
   ];
 }
