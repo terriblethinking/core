@@ -41,3 +41,10 @@ func GetBaseConfig() (Config, error) {
 	return config, nil
 
 }
+
+func RunSuperficialCheck() (Config, error) {
+	// configPath := configdir.LocalConfig("harness")
+
+
+
+}
