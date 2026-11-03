@@ -9,7 +9,7 @@ import (
 	"os"
 )
 
-func InitAll() error {
+func InitAllPaths() error {
 
 	configPath := configdir.LocalConfig("harness")
 
@@ -23,6 +23,7 @@ func InitAll() error {
 	os.MkdirAll(fmt.Sprintf("%s/memory", configPath), 0777)
 	os.MkdirAll(fmt.Sprintf("%s/skills", configPath), 0777)
 	os.MkdirAll(fmt.Sprintf("%s/tools", configPath), 0777)
+	os.MkdirAll(fmt.Sprintf("%s/logs", configPath), 0777)
 
 	if _, err := os.Stat(fmt.Sprintf("%s/config.yaml", configPath)); errors.Is(err, os.ErrNotExist) {
 
@@ -50,3 +51,4 @@ func InitAll() error {
 	return nil
 
 }
+
