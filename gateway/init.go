@@ -29,8 +29,9 @@ func InitGateway() (*bifrost.Bifrost, error) {
 				err := config.InitAllPaths()
 
 				// If the config module had an error initing the config, we
-				// simply panic. There really are no more things we can do
-				// at this point.
+				// return the error, which will most likely cause a panic.
+				// There really are no more things we can do at this point,
+				// if IO errors are occuring.
 
 				if err != nil {
 					return nil, err
