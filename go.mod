@@ -3,6 +3,7 @@ module github.com/terriblethinking/core
 go 1.27.0
 
 require (
+	github.com/google/uuid v1.6.0
 	github.com/kirsle/configdir v0.0.0-20170128060238-e45d2f54772f
 	github.com/maximhq/bifrost/core v1.12.0
 	gopkg.in/yaml.v3 v3.0.1
@@ -45,7 +46,6 @@ require (
 	github.com/cloudwego/base64x v0.1.6 // indirect
 	github.com/fasthttp/websocket v1.5.12 // indirect
 	github.com/golang-jwt/jwt/v5 v5.3.1 // indirect
-	github.com/google/uuid v1.6.0 // indirect
 	github.com/invopop/jsonschema v0.13.0 // indirect
 	github.com/klauspost/compress v1.20.0 // indirect
 	github.com/klauspost/cpuid/v2 v2.3.0 // indirect
